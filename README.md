@@ -30,7 +30,7 @@ The Peceptron built on the ideas of the MCP Neuron, using weights instead of the
 
 Each input has a weight value. Like the MCP, the inputs are totalled up and should exceed a threshold, however each input value is also multiplied by its weight. 
 
-On its own a Peceptron doesn't hold much value as Rosenblatt realised - but when part of a network it becomes more powerful. The networks can be:
+On its own a Peceptron doesn't hold much value as McCulloch and Pitts realised - but when part of a network it becomes more powerful. The networks can be:
 
 - Layered: a layer of neurons feeds its output values into the next layer of neurons as inputs.
 - Lattices: like floors in a building, each floor contain a set of neurons that feed into the next floor or lattice.
