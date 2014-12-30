@@ -1,4 +1,4 @@
-NeuralNetwork
+C# Neural Network
 =============
 
 A C# implementation of an MCP Neuron and Rosenblatt Peceptron, plus a simple neural network.
