@@ -1,7 +1,7 @@
 NeuralNetwork
 =============
 
-A C# implementation of a Rosenblatt Peceptron,  (a simple neural network).
+A C# implementation of an MCP Neuron and Rosenblatt Peceptron, plus a simple neural network.
 
 ###Background
 
