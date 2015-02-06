@@ -37,3 +37,4 @@ On its own a Peceptron doesn't hold much value as McCulloch and Pitts realised -
 - Recurrent: the output value of a neuron or layer feeds back into a previous layer in the network.
  
 The networks can either be supervised (supervised learning) where training data is provided, and the weights adjusted until the output matches the data; or un-supervised where the threshold function(s) adjust the values to reinforce them where needed.
+   
