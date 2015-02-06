@@ -1,9 +1,9 @@
 language: csharp
-solution: NeuralNetwork/NeuralNetwork.sln
+solution: NeuralNetwork.sln
 
 install:
-  - nuget restore NeuralNetwork/NeuralNetwork.sln
+  - nuget restore NeuralNetwork.sln
   - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
 script:
-  - xbuild /p:Configuration=Release NeuralNetwork/NeuralNetwork.sln
-  
+  - xbuild /p:Configuration=Release NeuralNetwork.sln
+  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./src/NeuralNetwork.Tests/bin/Release/NeuralNetwork.Tests.dll
