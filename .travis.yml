@@ -1,5 +1,5 @@
 language: csharp
-solution: NeuralNetwork.sln
+solution: NeuralNetwork/NeuralNetwork.sln
 
 install:
   - nuget restore solution-name.sln
