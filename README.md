@@ -1,6 +1,9 @@
 C# Neural Network
 =============
 
+![](https://travis-ci.org/yetanotherchris/NeuralNetwork.svg?branch=master)
+
+
 A C# implementation of an MCP Neuron and Rosenblatt Peceptron, plus a simple neural network.
 
 ###Background
