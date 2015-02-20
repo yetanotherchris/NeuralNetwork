@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PeceptronNeuron.cs" />
+    <Compile Include="Input.cs" />
     <Compile Include="MCPNeuron.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
