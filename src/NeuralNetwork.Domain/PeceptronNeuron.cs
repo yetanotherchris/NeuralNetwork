@@ -7,27 +7,38 @@ namespace NeuralNetwork
 {
     public class PeceptronNeuron
     {
-        public List<Input> Inputs { get; set; }
-        public int Threshold { get; set; }
+        private readonly List<Input> _inputs;
+
+        public Guid Id { get; private set; }
+        public IEnumerable<Input> Inputs { get { return _inputs; } }
+        public double Threshold { get; set; }
 
         public PeceptronNeuron()
         {
+            _inputs = new List<Input>();
+            Id = Guid.NewGuid();
             Threshold = 1;
-            Inputs = new List<Input>();
         }
 
-        public int SumInputs()
+        /// <summary>
+        /// Sums all the inputs, multiplying them by their values.
+        /// An alternative is to multiply the values (so a 0 value "gates" all the other inputs to zero),
+        /// "This is rare in neural networks".
+        /// </summary>
+        /// <returns></returns>
+        public double SumInputs()
         {
-            // An alternative is to multiply the values (so a 0 value "gates" all the other inputs to zero),
-            // "This is rare in neural networks".
-            int total = Inputs.Sum(x => x.Value * x.Weight);
+            double total = Inputs.Sum(x => x.Value * x.Weight);
             return total;
         }
 
+        /// <summary>
+        /// This is the value passed onto the next neuron, e.g. the output or Y value of the unit/neuron.
+        /// </summary>
+        /// <param name="inputTotal"></param>
+        /// <returns></returns>
         public double SigmoidTotal(double inputTotal)
         {
-            // This is the value passed onto the next neuron, e.g. the output or Y value of the unit/neuron.
-
             // Sigmoid function (S graph):
             //
             // y = 
@@ -41,6 +52,21 @@ namespace NeuralNetwork
             double eToNegativeNetinput = (Math.Pow(Math.E, -inputTotal));
             double y = 1 / (1 + eToNegativeNetinput);
             return Math.Round(y, 3, MidpointRounding.ToEven);
+        }
+
+        public void ClearInputs()
+        {
+            _inputs.Clear();
+        }
+
+        public void AddInput(double value, int weight)
+        {
+            AddInput(new Input(value, weight));
+        }
+
+        internal void AddInput(Input input)
+        {
+            _inputs.Add(input);
         }
     }
 }

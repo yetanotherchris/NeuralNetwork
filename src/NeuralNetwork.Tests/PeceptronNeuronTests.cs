@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using NUnit.Framework;
 
 namespace NeuralNetwork.Tests
@@ -17,10 +14,10 @@ namespace NeuralNetwork.Tests
 		{
 			// Arrange
 			PeceptronNeuron neuron = new PeceptronNeuron();
-			neuron.Inputs.Add(new Input(value, weight));
+            neuron.AddInput(value, weight);
 
 			// Act
-			int actualSum = neuron.SumInputs();
+            double actualSum = neuron.SumInputs();
 
 			// Assert
 			Assert.That(actualSum, Is.EqualTo(expectedSum));
@@ -35,11 +32,11 @@ namespace NeuralNetwork.Tests
 
 			for (int i = 0; i < values.Length; i++)
 			{
-				neuron.Inputs.Add(new Input(values[i], weights[i]));
+				neuron.AddInput(values[i], weights[i]);
 			}
 
 			// Act
-			int actualSum = neuron.SumInputs();
+            double actualSum = neuron.SumInputs();
 
 			// Assert
 			Assert.That(actualSum, Is.EqualTo(expectedSum));
@@ -58,5 +55,35 @@ namespace NeuralNetwork.Tests
 			// Assert
 			Assert.That(actualValue, Is.EqualTo(expectedValue));
 		}
+
+        [Test]
+        public void ClearInputs_should_remove_all_inputs()
+        {
+            // Arrange
+            PeceptronNeuron neuron = new PeceptronNeuron();
+            neuron.AddInput(1, 1);
+            neuron.AddInput(2, 1);
+
+            // Act
+            neuron.ClearInputs();
+
+            // Assert
+            Assert.That(neuron.Inputs.Count(), Is.EqualTo(0));
+        }
+
+        [Test]
+        public void AddInput_should_add_to_inputs_with_correct_values()
+        {
+            // Arrange
+            PeceptronNeuron neuron = new PeceptronNeuron();
+
+            // Act
+            neuron.AddInput(1, 2);
+
+            // Assert
+            Assert.That(neuron.Inputs.Count(), Is.EqualTo(1));
+            Assert.That(neuron.Inputs.First().Value, Is.EqualTo(1));
+            Assert.That(neuron.Inputs.First().Weight, Is.EqualTo(2));
+        }
 	}
 }

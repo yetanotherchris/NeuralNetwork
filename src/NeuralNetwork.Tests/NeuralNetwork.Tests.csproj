@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Compile Include="LayerTests.cs" />
     <Compile Include="PeceptronNeuronTests.cs" />
     <Compile Include="MCPNeuronTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

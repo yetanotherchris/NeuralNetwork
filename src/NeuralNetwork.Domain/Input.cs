@@ -2,10 +2,10 @@
 {
     public class Input
     {
-        public int Value { get; set; }
-        public int Weight { get; set; }
+        public double Value { get; set; }
+        public double Weight { get; set; }
 
-        public Input(int value, int weight)
+        public Input(double value, double weight)
         {
             Value = value;
             Weight = weight;
